@@ -80,6 +80,6 @@ curl \
   --request POST \
   --url https://api.telegram.org/bot<токен_бота>/setWebhook \
   --header 'content-type: application/json' \
-  --data '{"url": "<домен_API-шлюза>/ip-cam-tg-bot"}'
+  --data '{"url": "<домен_API-шлюза>/ip-cam-search-tg-bot"}'
 ```
 Выполнить можно в Cloud Shell.
