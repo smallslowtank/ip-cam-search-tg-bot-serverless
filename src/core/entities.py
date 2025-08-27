@@ -11,10 +11,10 @@ class CreateUser(BaseModel):
     camera_IR_illumination: int = 30
     camera_operating_temperature_min: int = -40
     camera_operating_temperature_max: int = 50
-    camera_data_transfer_interface: str = ""
+    camera_data_transfer_interface: str = "Wi-Fi"
     camera_power_supply_poe: bool = True
     camera_lightning_protection: bool = True
-    camera_comment: str = ""
+    camera_comment: str = "969"
 
     # Какие параметры камеры включить в поисковый запрос
     search_camera_resolution: bool = True
@@ -22,10 +22,10 @@ class CreateUser(BaseModel):
     search_camera_IR_illumination: bool = True
     search_camera_operating_temperature_min: bool = True
     search_camera_operating_temperature_max: bool = True
-    search_camera_data_transfer_interface: bool = True
+    search_camera_data_transfer_interface: bool = False
     search_camera_power_supply_poe: bool = True
     search_camera_lightning_protection: bool = True
-    search_camera_comment: bool = True
+    search_camera_comment: bool = False
 
 
 class DefaultCamera(BaseModel):
