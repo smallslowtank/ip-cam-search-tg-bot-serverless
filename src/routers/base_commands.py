@@ -11,9 +11,9 @@ from core.services import user_service
 
 router = Router(name=__name__)
 
-start_page_text = 'Это бот для подбора IP видеокамер. \
+start_page_text = "Это бот для подбора IP видеокамер. \
     \n📚 <b>Help page</b> - Инструкция по работе с ботом. \
-    \n📝 <b>Main page</b> - Начать работу с ботом.'
+    \n📝 <b>Main page</b> - Начать работу с ботом."
 
 help_page_text = """📚 Help page. \
 \nЭто телеграм-бот для подбора IP-видеокамер. \
@@ -71,7 +71,7 @@ async def start_command(message: types.Message):
             ),
         )
     except Exception as e:
-        print('error:', e)
+        print("error:", e)
         await message.answer(
             text=error_text,
         )
@@ -103,7 +103,7 @@ async def help_command(message: types.Message):
             ),
         )
     except Exception as e:
-        print('error:', e)
+        print("error:", e)
         await message.answer(
             text=error_text,
         )
@@ -116,14 +116,20 @@ async def help_callback(callback: types.CallbackQuery):
     """
     Команда "help" (коллбэк)
     """
-    user_id = callback.from_user.id
-    user_id_text = f"\nYou Telegram ID: {user_id}"
-    await callback.message.edit_text(
-        text=help_page_text + user_id_text,
-        reply_markup=get_callback_buttons(
-            buttons={
-                "📝 Main page": "main",
-            },
-            sizes=(1,),
-        ),
-    )
+    try:
+        user_id = callback.from_user.id
+        user_id_text = f"\nYou Telegram ID: {user_id}"
+        await callback.message.edit_text(
+            text=help_page_text + user_id_text,
+            reply_markup=get_callback_buttons(
+                buttons={
+                    "📝 Main page": "main",
+                },
+                sizes=(1,),
+            ),
+        )
+    except Exception as e:
+        print("error:", e)
+        await callback.message.answer(
+            text=error_text,
+        )

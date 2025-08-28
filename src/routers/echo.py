@@ -1,6 +1,7 @@
 """
 Обработчик "Эхо", в данном случае реагирует на ввод текста с клавиатуры, не возвращает "эхо"
 """
+
 from aiogram import Router, types
 
 from keyboards.inline import get_callback_buttons
